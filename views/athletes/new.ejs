@@ -1,0 +1,42 @@
+<%- include('../partials/header') %>
+
+<section>
+  <h2>All Athletes</h2>
+  <% if(athletes && athletes.length){ %>
+  <ul>
+    <% athletes.forEach(p => { %>
+    <li><%= p.name %> </li>
+    <% }) %>
+  </ul>
+
+  <% } else { %>
+  <p>No athletes yet... add one below!</p>
+  <% } %>
+  <br />
+</section>
+
+<section>
+  <form action="/athletes" method="POST">
+    <!-- fields in model: name (required, unique), born (date, no default value) -->
+    <div>
+      <label for="name">Athlete name</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="provide a new athlete name"
+        required
+      />
+    </div>
+
+    <div>
+      <label for="born">Born date</label>
+      <input type="date" name="born" id="born" />
+    </div>
+
+    <button type="submit">Add Athlete</button>
+  </form>
+
+  <p><%=errorMsg%></p>
+</section>
+<%- include('../partials/footer') %>
