@@ -11,17 +11,11 @@ const athleteSchema = new Schema({
   timestamps: true
 });
 
-// Team schema
-const teamSchema = new Schema({
-  name: { type: String, required: true },
-  city: { type: String, required: true },
-  athletes: [{ type: Schema.Types.ObjectId, ref: 'Athlete' }], // Reference to Athlete model
-}, {
-  timestamps: true
-});
+
+
+
 
 // Compile the schemas into models and export them
 const Athlete = mongoose.model('Athlete', athleteSchema);
-const Team = mongoose.model('Team', teamSchema);
 
-module.exports = { Athlete, Team };
+module.exports = Athlete;
