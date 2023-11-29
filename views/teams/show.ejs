@@ -1,0 +1,9 @@
+<h1><%= title %></h1>
+<p>Name: <%= team.name %></p>
+<p>City: <%= team.city %></p>
+<h2>Athletes</h2>
+<ul>
+  <% team.athletes.forEach(function(athlete) { %>
+    <li><%= athlete.name %></li>
+  <% }); %>
+</ul>
