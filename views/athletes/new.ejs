@@ -1,42 +1,15 @@
-<%- include('../partials/header') %>
-
-<section>
-  <h2>All Athletes</h2>
-  <% if(athletes && athletes.length){ %>
-  <ul>
-    <% athletes.forEach(p => { %>
-    <li><%= p.name %> </li>
-    <% }) %>
-  </ul>
-
-  <% } else { %>
-  <p>No athletes yet... add one below!</p>
-  <% } %>
-  <br />
-</section>
-
-<section>
-  <form action="/athletes" method="POST">
-    <!-- fields in model: name (required, unique), born (date, no default value) -->
-    <div>
-      <label for="name">Athlete name</label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        placeholder="provide a new athlete name"
-        required
-      />
-    </div>
-
-    <div>
-      <label for="born">Born date</label>
-      <input type="date" name="born" id="born" />
-    </div>
-
-    <button type="submit">Add Athlete</button>
-  </form>
-
-  <p><%=errorMsg%></p>
-</section>
-<%- include('../partials/footer') %>
+<h1>Create a New Athlete</h1>
+<form action="/athletes" method="post">
+  <!-- Add form fields for athlete properties -->
+  <input type="text" name="name" placeholder="Name" required>
+  <input type="number" name="age" placeholder="Age" required>
+  <input type="text" name="position" placeholder="Position" required>
+  <!-- Add dropdown/select for team association -->
+  <select name="team">
+    <option value="" disabled selected>Select Team</option>
+    <% teams.forEach(function(team) { %>
+      <option value="<%= team._id %>"><%= team.name %></option>
+    <% }); %>
+  </select>
+  <button type="submit">Create Athlete</button>
+</form>
