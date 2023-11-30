@@ -6,7 +6,7 @@ const teamSchema = new Schema({
   city: { type: String, required: true },
   athletes: [{ type: Schema.Types.ObjectId, ref: 'Athlete' }],
 }, {
-  timestamps: true
+
 });
 
 const Team = mongoose.model('Team', teamSchema);

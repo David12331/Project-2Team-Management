@@ -1,10 +1,22 @@
 <h1>Create a New Athlete</h1>
 <form action="/athletes" method="post">
+
+
   <!-- Add form fields for athlete properties -->
+
+
+
+
   <input type="text" name="name" placeholder="Name" required>
   <input type="number" name="age" placeholder="Age" required>
   <input type="text" name="position" placeholder="Position" required>
+
+
+
   <!-- Add dropdown/select for team association -->
+
+
+  
   <select name="team">
     <option value="" disabled selected>Select Team</option>
     <% teams.forEach(function(team) { %>
