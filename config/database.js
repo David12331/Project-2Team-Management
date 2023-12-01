@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('process.env.DATABASE_URL', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true
-});
+mongoose.connect(process.env.DATABASE_URL)
 
 
 // shortcut to mongoose.connection object
