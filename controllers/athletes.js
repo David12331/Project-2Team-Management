@@ -54,7 +54,13 @@ module.exports = {
     }
   },
 
-  new(req, res) {
-    res.render('athletes/new');
+  async new(req, res) {
+    try {
+      const teams = await Team.find({}); // Fetch the list of teams
+      res.render('athletes/new', { teams });
+    } catch (err) {
+      console.error(err);
+      res.redirect('/athletes'); // or handle the error in an appropriate way
+    }
   }
-};
+}

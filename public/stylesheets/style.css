@@ -1,8 +1,53 @@
-body {
+/* body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+} */
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  text-align: center;
+  background-color: white;
+  padding: 20px;
+}
+
+h1 {
+  color: black;
+  margin: 0; /* Remove default margin */
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between; /* Distribute items along the container */
+  align-items: center;
+  background-color: gray;
+  padding: 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px; /* Adjust this value for desired spacing */
+}
+
+button:hover {
+  background-color: greenyellow;
 }
