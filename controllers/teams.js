@@ -56,7 +56,7 @@ module.exports = {
     }
   },
 
-  new(req, res) {
+  newForm(req, res) {
     res.render('teams/new');
   }
 };
