@@ -4,7 +4,7 @@ const Athlete = require('../models/athlete');
 module.exports = {
   async delete(req, res) {
     try {
-        
+
       const deletedTeam = await Team.findByIdAndDelete(req.params.id);
 
       if (deletedTeam) {
@@ -48,6 +48,7 @@ module.exports = {
       
       const team = new Team(req.body);
       await team.save();
+      console.log('new Team created; newTeam')
       res.redirect('/teams');
     } catch (err) {
       console.error(err);
