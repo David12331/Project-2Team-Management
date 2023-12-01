@@ -9,3 +9,5 @@ router.post('/', teamController.create);
 router.delete('/:id', teamController.delete);
 
 module.exports = router;
+
+
