@@ -43,20 +43,42 @@ module.exports = {
   },
 
   async create(req, res) {
+    const teams = await Team.find(); // Fetch the list of teams
+  
     try {
-      const teams = await Team.find({}); // Fetch the list of teams
-      const athlete = new Athlete(req.body);
+      const { name, age, position, team } = req.body;
+  
+      const athlete = new Athlete({
+        name,
+        age,
+        position,
+        team, // Assign the team ID to the athlete's team field
+      });
+  
       await athlete.save();
+  
+     
+      if (team) {
+        await Team.findByIdAndUpdate(
+          team,
+          { $push: { athletes: athlete._id } },
+          { new: true }
+        );
+      }
+  
       res.redirect('/athletes');
     } catch (err) {
       console.error(err);
-      res.render('athletes/new', { teams }); // Pass the teams variable to the view
+      res.render('athletes/new', { teams });
     }
   },
 
+
   async new(req, res) {
+    console.log("new athlete");
     try {
       const teams = await Team.find({}); // Fetch the list of teams
+      console.log("teams",teams)
       res.render('athletes/new', { teams });
     } catch (err) {
       console.error(err);
