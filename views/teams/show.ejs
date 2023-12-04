@@ -1,9 +1,13 @@
-<h1><%= title %></h1>
-<p>Name: <%= team.name %></p>
-<p>City: <%= team.city %></p>
-<h2>Athletes</h2>
+<h1>Team Details</h1>
+
+<p>Team Name: <%= team.name %></p>
+
+<h2>Athletes in this Team</h2>
+
 <ul>
-  <% team.athletes.forEach(function(athlete) { %>
+  <% team.athletes.forEach(athlete => { %>
     <li><%= athlete.name %></li>
   <% }); %>
 </ul>
+
+<a href="/teams">Back to Teams</a>

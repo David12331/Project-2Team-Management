@@ -4,7 +4,6 @@ const Athlete = require('../models/athlete');
 module.exports = {
   async delete(req, res) {
     try {
-
       const deletedTeam = await Team.findByIdAndDelete(req.params.id);
 
       if (deletedTeam) {
@@ -20,6 +19,7 @@ module.exports = {
       res.redirect("/teams");
     }
   },
+  
 
   async index(req, res) {
     try {
@@ -32,16 +32,17 @@ module.exports = {
     }
   },
 
-  async show(req, res) {
-    try {
 
-      const team = await Team.findById(req.params.id).populate('athletes');
-      res.render('teams/show', { title: 'Team Details', team });
-    } catch (err) {
-      console.error(err);
-      res.redirect("/teams");
-    }
-  },
+    async show(req, res) {
+      try {
+        const team = await Team.findById(req.params.id).populate('athletes');
+        res.render('teams/show', { title: 'Team Details', team });
+      } catch (err) {
+        console.error(err);
+        res.redirect("/teams");
+      }
+    },
+
 
   async create(req, res) {
     try {
