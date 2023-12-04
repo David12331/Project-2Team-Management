@@ -1,0 +1,15 @@
+<h1>Edit Athlete</h1>
+<form action="<%= `/athletes/${athlete._id}?_method=PUT` %>" method="POST">
+  <input type="text" name="name" value="<%= athlete.name %>" required>
+  <input type="number" name="age" value="<%= athlete.age %>" required>
+  <input type="text" name="position" value="<%= athlete.position %>" required>
+  <select name="team">
+    <option value="" disabled>Select Team</option>
+    <% teams.forEach(function(t) { %>
+      <option value="<%= t._id %>" <% if (athlete.team && athlete.team.equals(t._id)) { %>selected<% } %>>
+        <%= t.name %>
+      </option>
+    <% }); %>
+  </select>
+  <button type="submit">Update Athlete</button>
+</form>

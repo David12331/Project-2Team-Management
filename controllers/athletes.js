@@ -73,6 +73,17 @@ module.exports = {
     }
   },
 
+  async editForm(req, res) {
+    try {
+      const athlete = await Athlete.findById(req.params.id);
+      const teams = await Team.find();
+      res.render('athletes/edit', { athlete, teams });
+    } catch (err) {
+      console.error(err);
+      res.redirect('/athletes');
+    }
+  },
+
 
   async new(req, res) {
     console.log("new athlete");
@@ -82,7 +93,7 @@ module.exports = {
       res.render('athletes/new', { teams });
     } catch (err) {
       console.error(err);
-      res.redirect('/athletes'); // or handle the error in an appropriate way
+      res.redirect('/athletes'); // 
     }
   }
 }
