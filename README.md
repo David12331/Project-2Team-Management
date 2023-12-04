@@ -28,5 +28,11 @@ The following Trello board was very helpful in planning the different functional
 
 ## Technolgies Used 
 
-
+- Javascript
+- Node.js
+- Express 
+- HTML
+- CSS 
+- Mongoose 
+- MongoDB
 
