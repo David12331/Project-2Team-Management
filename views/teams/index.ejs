@@ -1,6 +1,11 @@
 <h1>All Teams</h1>
 <ul>
   <% teams.forEach(function(team) { %>
-    <li><%= team.name %></li>
+    <li>
+      <%= team.name %>
+      <form method="POST" action="/teams/<%= team._id %>?_method=DELETE" style="display:inline;">
+        <button type="submit">Delete</button>
+      </form>
+    </li>
   <% }); %>
 </ul>
